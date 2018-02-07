@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<title>L.FLG</title>
+<title>L.ISTEN</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -15,7 +15,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
 <!-- Navigation Bar -->
 <div class="w3-bar w3-white w3-border-bottom w3-xlarge">
 <a href="${pageContext.request.contextPath}/home.do" class="w3-bar-item w3-button w3-text-red w3-hover-red"><img alt="" src="${pageContext.request.contextPath}/resources/img/l_logo.jpg" style="width: 50px;height: 50px;"></a>
-  <a href="#" class="w3-bar-item w3-button w3-right w3-hover-red w3-text-grey"><i class="fa fa-search"></i></a>
+  <a href="#" class="w3-bar-item w3-button w3-right w3-hover-red w3-text-grey"><i class="glyphicon glyphicon-user"></i></a>
 </div>
 
 <!-- Header -->
@@ -28,12 +28,11 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
 
 
 
-  <!-- Newsletter -->
-  <div class="w3-container row" style="margin-top: 100px">
+  <div class="w3-container row" style="margin-top: 200px">
     <div class="col-sm-6 w3-panel w3-padding-16 w3-red w3-opacity w3-card w3-hover-opacity-off" >
-      <h1 style="font-weight: bold;">L.FLG</h1>
-      <p>Sign in the L.FLG.</p>
-      <form id="" action="main.do" method="post">
+      <h1 style="font-weight: bold;">L.ISTEN</h1>
+      <p>Sign in the L.ISTEN.</p>
+      <form id="" action="login.do" method="post">
       <label>ID</label>
       <input class="w3-input w3-border" name="userId"type="text" placeholder="Your ID">
       <label>PASSWORD</label>
@@ -49,7 +48,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", Arial, Helvetica, sans-serif}
 </div>
 
 <!-- Footer -->
-<footer class="w3-container w3-center w3-opacity w3-margin-bottom">
+<footer class="w3-container w3-center w3-opacity w3-margin-bottom" style="margin-top: 300px;">
   <h5>L.FLG Administration Service</h5>
   <div class="w3-xlarge w3-padding-16">
     <i class="fa fa-facebook-official w3-hover-opacity"></i>

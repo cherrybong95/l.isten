@@ -11,9 +11,79 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where id=#{id} and password=#{password}
 	</select>	
 	 -->
-		<select id="getChartData" resultType="Object">
-		select * from data;
+	 	<select id="findKeyWord" parameterType="string" resultType="string">
+	 	select word from keyword where word=#{value} 
+	 	</select>
+	 	
+	 	
+		<insert id="insertEvaluation" parameterType="map">
+		 <selectKey keyProperty="eNo" resultType="int" order="BEFORE">
+		 select eval_seq.nextval from dual
+		 </selectKey>
+		insert into evaluation(eNo,pName,flavor,design,price,orgWord,name,phoneNum) values(#{eNo},#{item},#{flavor},#{design},#{price},#{orgWord},#{name},#{phoneNum})
+		</insert>
+		<select id="getItemList" resultType="string">
+		select * from product
 		</select>
+		<select id="findItem" resultType="string">
+		select pName from product where pName=#{value} 
+		</select>
+		
+		<select id="showGraphFlavorPositive" parameterType="string" resultType="string">
+		select count(k.value) from evaluation e, keyword k where e.pName=#{item} and e.flavor=k.word and k.value='p'
+		group by k.value
+		</select>
+		<select id="showGraphFlavorNegative" parameterType="string" resultType="string">
+		select count(k.value) from evaluation e, keyword k where e.pName=#{item} and e.flavor=k.word and k.value='n'
+		group by k.value
+		</select>
+		
+		
+		<select id="showGraphPircePositive" parameterType="string" resultType="string">
+		select count(k.value) from evaluation e, keyword k where e.pName=#{item} and e.price=k.word and k.value='p'
+		group by k.value
+		</select>
+		<select id="showGraphPirceNegative" parameterType="string" resultType="string">
+		select count(k.value) from evaluation e, keyword k where e.pName=#{item} and e.price=k.word and k.value='n'
+		group by k.value
+		</select>
+		
+		<select id="showGraphDesignPositive" parameterType="string" resultType="string">
+		select count(k.value) from evaluation e, keyword k where e.pName=#{item} and e.design=k.word and k.value='p'
+		group by k.value
+		</select>
+		<select id="showGraphDesignNegative" parameterType="string" resultType="string">
+		select count(k.value) from evaluation e, keyword k where e.pName=#{item} and e.design=k.word and k.value='n'
+		group by k.value
+		</select>
+		
+		
+		<select id="getDetailFP" parameterType="string" resultType="keyandVal">
+		select k.word as key, count(k.value) as value from evaluation e, keyword k where e.pName=#{item} and e.flavor=k.word and k.value='p'
+		group by k.value,k.word
+		</select>
+		<select id="getDetailFN" parameterType="string" resultType="keyandVal">
+		select k.word as key, count(k.value) as value from evaluation e, keyword k where e.pName=#{item} and e.flavor=k.word and k.value='n'
+		group by k.value,k.word
+		</select>
+		<select id="getDetailPP" parameterType="string" resultType="keyandVal">
+		select k.word as key, count(k.value) as value from evaluation e, keyword k where e.pName=#{item} and e.price=k.word and k.value='p'
+		group by k.value,k.word
+		</select>
+		<select id="getDetailPN" parameterType="string" resultType="keyandVal">
+		select k.word as key, count(k.value) as value from evaluation e, keyword k where e.pName=#{item} and e.price=k.word and k.value='n'
+		group by k.value,k.word
+		</select>
+		<select id="getDetailDP" parameterType="string" resultType="keyandVal">
+		select k.word as key, count(k.value) as value from evaluation e, keyword k where e.pName=#{item} and e.design=k.word and k.value='p'
+		group by k.value,k.word
+		</select>
+		<select id="getDetailDN" parameterType="string" resultType="keyandVal">
+		select k.word as key, count(k.value) as value from evaluation e, keyword k where e.pName=#{item} and e.design=k.word and k.value='n'
+		group by k.value,k.word
+		</select>
+		
+		
  </mapper>
  
  

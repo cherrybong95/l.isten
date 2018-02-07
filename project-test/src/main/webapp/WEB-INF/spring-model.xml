@@ -15,8 +15,8 @@
 <bean id="dbcp" class="org.apache.commons.dbcp.BasicDataSource">
    <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
    <property name="url" value="jdbc:oracle:thin:@127.0.0.1:1521:xe" />
-   <property name="username" value="lotte" />
-   <property name="password" value="team" />
+   <property name="username" value="scott" />
+   <property name="password" value="tiger" />
    <property name="maxActive" value="20"></property>
 </bean>
 <!-- spring과 mybatis 연동 설정 -->

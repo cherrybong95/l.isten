@@ -8,10 +8,10 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 -->
 <configuration>	
 	<typeAliases>
-		<package name="org.edu.lotte.business"/>
+		<package name="org.edu.lotte"/>
 	</typeAliases>
 	<mappers>
-		<!-- <mapper resource="mybatis/config/data.xml"/> -->
+		 <mapper resource="mybatis/config/data.xml"/>
 	</mappers>
 </configuration>
 
